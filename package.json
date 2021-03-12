@@ -1,0 +1,31 @@
+{
+  "name": "violent-sequencer",
+  "version": "1.0.0",
+  "description": "violent sequencer for using with dosisWeb",
+  "main": "index-nw.html",
+  "scripts": {
+    "start": "nw .",
+    "watch-live": "watchify -p [ browserify-livereload --host 127.0.0.1 --port 3000 ] src/main.js -o ./main.js -d -v",
+    "watch": "watchify src/main.js -o ./main.js -d -v",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alvarobyrne/violent-sequencer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alvarobyrne/violent-sequencer/issues"
+  },
+  "homepage": "https://github.com/alvarobyrne/violent-sequencer#readme",
+  "devDependencies": {
+    "browserify-livereload": "^1.0.10",
+    "watchify": "^4.0.0"
+  },
+  "dependencies": {
+    "chokidar": "^3.5.1",
+    "dat.gui": "^0.7.7"
+  }
+}
