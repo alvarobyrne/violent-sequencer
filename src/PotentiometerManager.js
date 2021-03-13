@@ -8,21 +8,26 @@ class Potentiometer extends SVGElementSC{
         super(parent);
         const boundsWidthPX = to_px(17);
         this.boundsWidthPX = boundsWidthPX;
-        const boundsHeightPX = to_px(25);
+        this.boundsHeightPX = to_px(25);
+        const boundsHeightPX = this.boundsHeightPX;
         const diameter = 7;
+        this.ledRadiusPX = to_px(2.5);
         this.element =this.getGroup();
         const potGroup = this.drawPotentiometer(diameter,boundsWidthPX,boundsHeightPX);
+        this.ledGroup = this.drawLED(0,boundsHeightPX);
+        this.element.appendChild(this.ledGroup);
         this.element.appendChild(potGroup);
-        this.parent.appendChild(this.element)
+        this.parent.appendChild(this.element);
+
     }
     drawPotentiometer(d,w,h){
         const gr = this.getGroup();
         const rect = document.createElementNS(SVG_NS,'rect');
         rect.setAttribute('width',w)
         rect.setAttribute('height',h)
-        this.setAsRaw(rect);
         rect.setAttribute('x',-w*0.5)
         rect.setAttribute('y',-w*0.5)
+        this.setAsRaw(rect);
         const circle = document.createElementNS(SVG_NS,'circle');
         circle.setAttribute('r',to_px(d*0.5))
         this.setAsCut(circle);
@@ -31,37 +36,51 @@ class Potentiometer extends SVGElementSC{
 
         return gr;
     }
+    drawLED(x,y){
+        const circle = document.createElementNS(SVG_NS,'circle');
+        circle.setAttribute('r',this.ledRadiusPX)
+        circle.setAttribute('transform',`translate(${x},${y})`)
+        this.setAsCut(circle)
+        return circle
+    }
     
 }
 class PotentiometerWithSwitch extends Potentiometer{
     constructor(main){
         super(main)
+        this.holeWidthMM = 5;
+        this.holeHeightMM = 10;
+        const boundsHeightMM = 20;
+        this.wholeHeightPX = to_px(boundsHeightMM);
+        this.heightDiffPX = 0.5*to_px(boundsHeightMM - this.holeHeightMM);
+        this.holeHeightPX = to_px(this.holeHeightMM);
+
         const switchGroup = this.drawSwitch(this.boundsWidthPX);
-        // this.element.setAttribute('transform',`translate(${-w*0.5},${-w*0.5})`)
-        // this.element.setAttribute('y',-w*0.5)
         this.element.appendChild(switchGroup);
+        const ledYPX = -this.boundsWidthPX*0.5+this.boundsHeightPX+this.wholeHeightPX+this.ledRadiusPX+1;
+        this.ledGroup.setAttribute('transform',`translate(${0},${ledYPX})`)
+
     }
     drawSwitch(boundsWidthPX){
-        const holeWidthMM = 5;
-        const holeHeightMM = 10;
-        const boundsHeightMM = 20;
-        const boundsWidthMM = holeWidthMM;
-        const holeHeightPX = to_px(holeHeightMM);
-        const wholeHeightPX = to_px(boundsHeightMM);
+        const holeWidthMM = this.holeWidthMM;
+        const holeHeightMM = this.holeHeightMM;
+        const boundsHeightMM = this.boundsHeightMM;
+        const boundsWidthMM = this.holeWidthMM;
+        // const holeHeightPX = to_px(holeHeightMM);
+        // const wholeHeightPX = to_px(boundsHeightMM);
         const boltHoleDiameterMM = 2;
         const boltHoleRadiusMM = boltHoleDiameterMM*0.5;
         const boltHoleVertGapMM = 1.5;
         const boltHoleVertSep = boltHoleVertGapMM + boltHoleRadiusMM;
-        const heightDiffPX = 0.5*to_px(boundsHeightMM - holeHeightMM);
         const gr = this.getGroup();
         const rect = document.createElementNS(SVG_NS,'rect');
         const rectBound = document.createElementNS(SVG_NS,'rect');
         rect.setAttribute('width',to_px(holeWidthMM));
-        rect.setAttribute('height',holeHeightPX);
+        rect.setAttribute('height',this.holeHeightPX);
         this.setAsCut(rect);
         rectBound.setAttribute('width',to_px(boundsWidthMM));
-        rectBound.setAttribute('height',wholeHeightPX);
-        rectBound.setAttribute('y',-heightDiffPX);
+        rectBound.setAttribute('height',this.wholeHeightPX);
+        rectBound.setAttribute('y',-this.heightDiffPX);
         this.setAsRaw(rectBound)
         const circle = document.createElementNS(SVG_NS,'circle');
         circle.setAttribute('r',to_px(boltHoleRadiusMM));
@@ -74,9 +93,10 @@ class PotentiometerWithSwitch extends Potentiometer{
         gr.appendChild(circle);
         gr.appendChild(rectBound);
         gr.appendChild(circleClone);
-        gr.setAttribute('transform',`translate(${-to_px(5*0.5)},${boundsWidthPX+heightDiffPX})`)
+        gr.setAttribute('transform',`translate(${-to_px(5*0.5)},${boundsWidthPX+this.heightDiffPX})`)
         return gr;
-    }}
+    }
+}
 class PotentiometerManager extends ViolentSequencerPlate{
     constructor(parent,config){
         super(parent);

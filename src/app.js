@@ -43,11 +43,12 @@ class App{
         this.mainGroup = mainGroup;
         svg.appendChild(mainGroup);
         this.isOverlap =true;
+        this.isOverlap =false;
 
     }
     render(){
         const mainGroup = this.mainGroup;
-        mainGroup.setAttribute('transform','translate(10,10)')
+        mainGroup.setAttribute('transform','translate(30,10)')
         const distanceUpperMM = 5;
         let distanceUpperPX = to_px(distanceUpperMM);
         let servoManager = new ServoManager(mainGroup,{
@@ -63,6 +64,7 @@ class App{
             columnWidthPX:this.columnWidthPX
             ,sequenceStepsAmount:this.sequenceStepsAmount
             ,isSwitch:true
+            ,isSwitch:false
             ,...this.config
         }
         const potManager = new PotentiometerManager(mainGroup, potsConfig);
@@ -70,7 +72,7 @@ class App{
         let overlapV_PX = this.config.frameHeightPX;
         if(!this.isOverlap){
             overlapV_PX=to_px(violentData.dimensions.height);
-            servoManager.element.setAttribute('transform',`translate(0,${overlapV_PX})`);
+            servoManager.element.setAttribute('transform',`translate(0,${overlapV_PX+30})`);
         }
     }
     export(){
