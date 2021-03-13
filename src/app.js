@@ -1,6 +1,7 @@
 const Exporter = require('./Exporter');
 const dat = require('dat.gui');
 const ServoManager = require('./ServoMotor');
+const PotentiometerManager = require('./PotentiometerManager');
 const globals = require('./globalsSC');
 const to_px = globals.to_px;
 const violentData = globals.violentData;
@@ -34,7 +35,7 @@ class App{
         mainGroup.appendChild(rect)
         let servoManager = new ServoManager(mainGroup,{distanceUpperMM:10});
         servoManager.render()
-        
+        new PotentiometerManager(mainGroup).render()
     }
     export(){
         Exporter.run(this.svg)
