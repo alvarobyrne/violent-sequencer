@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "chokidar": "^3.5.1",
-    "dat.gui": "^0.7.7"
+    "dat.gui": "^0.7.7",
+    "nw": "^0.52.0"
   }
 }

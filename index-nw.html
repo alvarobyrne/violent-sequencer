@@ -19,5 +19,6 @@ const CWD = process.cwd();
 <script>
     console.log('index-nw.html')
     const chokidar = require('chokidar')
-    chokidar.watch('src').on('change',()=>{location.reload(); });    
+    chokidar.watch(['main.js']).on('change',()=>{location.reload(); });    
+</script>
 </html>

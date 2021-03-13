@@ -1,2 +1,3 @@
 const App = require('./app');
-new App()
+const app = new App();
+app.render()
