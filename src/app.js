@@ -22,20 +22,49 @@ class App{
         gui.add(this,'export')
         
         this.svg = svg;
+        
+        const frameMargin = 5;//px
+        const frameHeightMM = violentData.dimensions.height;
+        const frameWidthMM = violentData.dimensions.width;
+        console.log('frameWidthMM', frameWidthMM)
+        console.log('frameHeightMM', frameHeightMM)
+        const frameWidthPX = to_px(frameWidthMM)-frameMargin*2;
+        const frameHeightPX = to_px(frameHeightMM)-frameMargin*2;
+        this.sequenceStepsAmount = 8;
+        const columnsAmount= this.sequenceStepsAmount;
+        this.columnWidthPX = frameWidthPX/columnsAmount;
+        this.config = {
+            frameHeightPX,
+            frameWidthPX,
+            frameMargin
+        }
     }
     render(){
         const mainGroup = document.createElementNS(SVG_NS, 'g');
         const rect = document.createElementNS(SVG_NS, 'rect');
         mainGroup.setAttribute('transform','translate(10,10)')
-        rect.setAttribute('width',to_px(violentData.dimensions.width*10))
-        rect.setAttribute('height',to_px(violentData.dimensions.height*10))
+        rect.setAttribute('width',to_px(violentData.dimensions.width))
+        rect.setAttribute('height',to_px(violentData.dimensions.height))
         rect.setAttribute('fill','none')
         rect.setAttribute('stroke','red')
         svg.appendChild(mainGroup)
+        let distanceUpperPX = to_px(10);
         mainGroup.appendChild(rect)
-        let servoManager = new ServoManager(mainGroup,{distanceUpperMM:10});
-        servoManager.render()
-        new PotentiometerManager(mainGroup).render()
+        let servoManager = new ServoManager(mainGroup,{
+            distanceUpperMM:10,
+            columnWidthPX:this.columnWidthPX
+            ,sequenceStepsAmount:this.sequenceStepsAmount
+            ,...this.config
+        });
+        servoManager.render();
+        const servoOffsetY_PX = to_px(globals.servoData.width*0.5);
+        const potsConfig={
+            distanceUpperPX:distanceUpperPX+servoOffsetY_PX,
+            columnWidthPX:this.columnWidthPX
+            ,sequenceStepsAmount:this.sequenceStepsAmount
+            ,...this.config
+        }
+        new PotentiometerManager(mainGroup,potsConfig).render()
     }
     export(){
         Exporter.run(this.svg)

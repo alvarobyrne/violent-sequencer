@@ -39,27 +39,43 @@ class ServoManager extends SVGElementSC{
     constructor(mainGroup,config){
         super(mainGroup)
         this.distanceUpperPX= config.distanceUpperMM;
+        this.columnWidthPX=config.columnWidthPX;
+        this.sequenceStepsAmount=config.sequenceStepsAmount;
     }
     render(){
         const managerGroup = this.getGroup();
-        this.element = managerGroup;
         let servoMotor = new ServoMotor(managerGroup);
         const frame = document.createElementNS(SVG_NS,'rect');
         const frameGroup = this.getGroup();
+        this.element = frameGroup;
         const frameMargin = 5;//px
         frameGroup.setAttribute('transform',`translate(${frameMargin},${frameMargin})`)
-        const frameWidthPX = to_px(violentData.dimensions.width*10)-frameMargin*2;
-        const frameHeightPX = to_px(violentData.dimensions.height*10)-frameMargin*2;
+        const frameWidthPX = to_px(violentData.dimensions.width)-frameMargin*2;
+        const frameHeightPX = to_px(violentData.dimensions.height)-frameMargin*2;
         this.setAsEngraving(frame);
         frame.setAttribute('width',frameWidthPX)
         frame.setAttribute('height',frameHeightPX)
         frameGroup.appendChild(frame);
-        let sequenceAmount = 8;
+        let sequenceAmount = this.sequenceStepsAmount;
         let columnsAmount= sequenceAmount;
-        const columnWidthPX = frameWidthPX/columnsAmount;
+        const columnWidthPX = this.columnWidthPX;
+        this.drawGuides(frameGroup,columnWidthPX,frameWidthPX,frameHeightPX);
+        const distanceUpperPX=to_px(this.distanceUpperPX);
+        const secondRowY_PX =frameHeightPX/2
         for (let index = 0; index < columnsAmount; index++) {
+            const servoClone = servoMotor.element.cloneNode(true);
+            const x = columnWidthPX*(index+0.5)-servoMotor.widthPX*0.5;
+            let y = index%2===0?0:secondRowY_PX;
+            y+=distanceUpperPX;
+            servoClone.setAttribute('transform',`translate(${x},${y})`)
+            frameGroup.appendChild(servoClone)
+        }
+        managerGroup.remove()
+    }
+    drawGuides(frameGroup,width,frameWidthPX,frameHeightPX){
+        for (let index = 0; index < this.sequenceStepsAmount; index++) {
             if(index===0)continue
-            const w = columnWidthPX*index;
+            const w = width*index;
             const line = document.createElementNS(SVG_NS,'line');
             frameGroup.appendChild(line);
             line.setAttribute('x1',w);
@@ -77,16 +93,7 @@ class ServoManager extends SVGElementSC{
         line.setAttribute('y1',`${secondRowY_PX}`);
         line.setAttribute('y2',`${secondRowY_PX}`);
         this.setAsRaw(line)
-        const distanceUpperPX=to_px(this.distanceUpperPX);
-        for (let index = 0; index < 8; index++) {
-            const servoClone = servoMotor.element.cloneNode(true);
-            const x = columnWidthPX*(index+0.5)-servoMotor.widthPX*0.5;
-            let y = index%2===0?0:secondRowY_PX;
-            y+=distanceUpperPX;
-            servoClone.setAttribute('transform',`translate(${x},${y})`)
-            frameGroup.appendChild(servoClone)
-        }
-        servoMotor.element.remove()
+
     }
 }
 

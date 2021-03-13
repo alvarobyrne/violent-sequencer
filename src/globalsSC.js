@@ -4,15 +4,19 @@ function to_px(value) {
 }
 const violentData={
     dimensions :{
-        width:21,
-        height:12,
-        units:'cm'
+        width:210,
+        height:120
     }
+}
+const servoData={
+    width:11.8,
+    height:22.5
 }
 let globals = {
     SVG_NS : "http://www.w3.org/2000/svg",
     to_px,
-    violentData
+    violentData,
+    servoData
 }
 
 module.exports = globals;
