@@ -5,61 +5,68 @@ const SVGElementSC = require('./SVGElementSC');
 class Potentiometer extends SVGElementSC{
     constructor(parent){
         super(parent);
+        const boundsWidthPX = to_px(17);
+        const boundsHeightPX = to_px(25);
+        const diameter = 7;
         this.element =this.getGroup();
-        const potGroup = this.drawPotentiometer();
-        const switchGroup = this.drawSwitch();
-        const w = to_px(17);
+        const potGroup = this.drawPotentiometer(diameter,boundsWidthPX,boundsHeightPX);
+        const switchGroup = this.drawSwitch(boundsWidthPX);
         // this.element.setAttribute('transform',`translate(${-w*0.5},${-w*0.5})`)
-        switchGroup.setAttribute('transform',`translate(${-to_px(5*0.5)},${to_px(17)})`)
         // this.element.setAttribute('y',-w*0.5)
         this.element.appendChild(switchGroup);
         this.element.appendChild(potGroup);
         this.parent.appendChild(this.element)
     }
-    drawPotentiometer(){
+    drawPotentiometer(d,w,h){
         const gr = this.getGroup();
         const circle = document.createElementNS(SVG_NS,'circle');
         const rect = document.createElementNS(SVG_NS,'rect');
-        const w = to_px(17);
-        const h = to_px(25);
         rect.setAttribute('width',w)
         rect.setAttribute('height',h)
         this.setAsRaw(rect);
         rect.setAttribute('x',-w*0.5)
         rect.setAttribute('y',-w*0.5)
-        circle.setAttribute('r',to_px(7/2))
+        circle.setAttribute('r',to_px(d*0.5))
         this.setAsCut(circle);
         gr.appendChild(circle)
         gr.appendChild(rect)
 
         return gr;
     }
-    drawSwitch(){
+    drawSwitch(boundsWidthPX){
+        const holeWidthMM = 5;
+        const holeHeightMM = 10;
+        const boundsHeightMM = 20;
+        const boundsWidthMM = holeWidthMM;
+        const holeHeightPX = to_px(holeHeightMM);
+        const wholeHeightPX = to_px(boundsHeightMM);
+        const boltHoleDiameterMM = 2;
+        const boltHoleRadiusMM = boltHoleDiameterMM*0.5;
+        const boltHoleVertGapMM = 1.5;
+        const boltHoleVertSep = boltHoleVertGapMM + boltHoleRadiusMM;
+        const heightDiffPX = to_px(boundsHeightMM - holeHeightMM);
         const gr = this.getGroup();
         const rect = document.createElementNS(SVG_NS,'rect');
-        const rectGuide = document.createElementNS(SVG_NS,'rect');
-        rect.setAttribute('width',to_px(5));
-        const holeHeightMM = 12;
-        const holeHeightPX = to_px(holeHeightMM);
+        const rectBound = document.createElementNS(SVG_NS,'rect');
+        rect.setAttribute('width',to_px(holeWidthMM));
         rect.setAttribute('height',holeHeightPX);
-        rectGuide.setAttribute('width',to_px(5));
-        const wholeHeightMM = 20;
-        const wholeHeightPX = to_px(wholeHeightMM);
-        rectGuide.setAttribute('height',wholeHeightPX);
-        rectGuide.setAttribute('y',-0.5*to_px(wholeHeightMM-holeHeightMM));
         this.setAsCut(rect);
-        this.setAsRaw(rectGuide)
+        rectBound.setAttribute('width',to_px(boundsWidthMM));
+        rectBound.setAttribute('height',wholeHeightPX);
+        rectBound.setAttribute('y',-0.5*heightDiffPX);
+        this.setAsRaw(rectBound)
         const circle = document.createElementNS(SVG_NS,'circle');
-        circle.setAttribute('r',to_px(1));
+        circle.setAttribute('r',to_px(boltHoleRadiusMM));
+        circle.setAttribute('cx',to_px(holeWidthMM*0.5))
+        circle.setAttribute('cy',to_px(-(boltHoleVertSep)))
         this.setAsCut(circle);
-        circle.setAttribute('cx',to_px(5*0.5))
-        circle.setAttribute('cy',to_px(-2))
-        const clone = circle.cloneNode();
-        clone.setAttribute('transform',`translate(${0},${holeHeightPX+to_px(4)})`)
+        const circleClone = circle.cloneNode();
+        circleClone.setAttribute('transform',`translate(${0},${to_px(2*boltHoleVertSep+holeHeightMM)})`)
         gr.appendChild(rect);
         gr.appendChild(circle);
-        gr.appendChild(rectGuide);
-        gr.appendChild(clone);
+        gr.appendChild(rectBound);
+        gr.appendChild(circleClone);
+        gr.setAttribute('transform',`translate(${-to_px(5*0.5)},${boundsWidthPX+heightDiffPX})`)
         return gr;
     }
 }
