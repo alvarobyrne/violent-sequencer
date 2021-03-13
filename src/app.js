@@ -23,35 +23,35 @@ class App{
         
         this.svg = svg;
         
-        const frameMargin = 5;//px
+        const frameMarginMM = 6;//px
+        const frameMarginPX = to_px(frameMarginMM);//px
         const frameHeightMM = violentData.dimensions.height;
         const frameWidthMM = violentData.dimensions.width;
         console.log('frameWidthMM', frameWidthMM)
         console.log('frameHeightMM', frameHeightMM)
-        const frameWidthPX = to_px(frameWidthMM)-frameMargin*2;
-        const frameHeightPX = to_px(frameHeightMM)-frameMargin*2;
+        const frameWidthPX = to_px(frameWidthMM)-frameMarginPX*2;
+        const frameHeightPX = to_px(frameHeightMM)-frameMarginPX*2;
         this.sequenceStepsAmount = 8;
         const columnsAmount= this.sequenceStepsAmount;
         this.columnWidthPX = frameWidthPX/columnsAmount;
         this.config = {
             frameHeightPX,
             frameWidthPX,
-            frameMargin
+            frameMargin: frameMarginPX
         }
+        const mainGroup = document.createElementNS(SVG_NS, 'g');
+        this.mainGroup = mainGroup;
+        svg.appendChild(mainGroup);
+        this.isOverlap =true;
+
     }
     render(){
-        const mainGroup = document.createElementNS(SVG_NS, 'g');
-        const rect = document.createElementNS(SVG_NS, 'rect');
+        const mainGroup = this.mainGroup;
         mainGroup.setAttribute('transform','translate(10,10)')
-        rect.setAttribute('width',to_px(violentData.dimensions.width))
-        rect.setAttribute('height',to_px(violentData.dimensions.height))
-        rect.setAttribute('fill','none')
-        rect.setAttribute('stroke','red')
-        svg.appendChild(mainGroup)
-        let distanceUpperPX = to_px(10);
-        mainGroup.appendChild(rect)
+        const distanceUpperMM = 5;
+        let distanceUpperPX = to_px(distanceUpperMM);
         let servoManager = new ServoManager(mainGroup,{
-            distanceUpperMM:10,
+            distanceUpperMM,
             columnWidthPX:this.columnWidthPX
             ,sequenceStepsAmount:this.sequenceStepsAmount
             ,...this.config
@@ -62,9 +62,16 @@ class App{
             distanceUpperPX:distanceUpperPX+servoOffsetY_PX,
             columnWidthPX:this.columnWidthPX
             ,sequenceStepsAmount:this.sequenceStepsAmount
+            ,isSwitch:true
             ,...this.config
         }
-        new PotentiometerManager(mainGroup,potsConfig).render()
+        const potManager = new PotentiometerManager(mainGroup, potsConfig);
+        potManager.render();
+        let overlapV_PX = this.config.frameHeightPX;
+        if(!this.isOverlap){
+            overlapV_PX=to_px(violentData.dimensions.height);
+            servoManager.element.setAttribute('transform',`translate(0,${overlapV_PX})`);
+        }
     }
     export(){
         Exporter.run(this.svg)

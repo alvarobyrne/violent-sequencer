@@ -1,5 +1,6 @@
 let globals = require('./globalsSC');
 const SVGElementSC = require('./SVGElementSC');
+const ViolentSequencerPlate = require('./ViolentSequencerPlate');
 const to_px = globals.to_px;
 const SVG_NS = globals.SVG_NS;
 const violentData = globals.violentData;
@@ -28,31 +29,39 @@ class ServoMotor extends SVGElementSC{
         this.setAsCut(hole);
         let hole2 = hole.cloneNode();
         hole2.setAttribute('transform',`translate(0,${to_px(22.5+2*circDist)})`)
+        const servoArm = document.createElementNS(SVG_NS,'circle');
+        this.setAsEngraving(servoArm);
+        servoArm.setAttribute('r',to_px(45*0.5))
+        servoArm.setAttribute('cx',this.horizontalCenterPX)
+        servoArm.setAttribute('cy',this.horizontalCenterPX)
         servoGroup.appendChild(mainRect);
         servoGroup.appendChild(hole);
+        servoGroup.appendChild(servoArm);
         servoGroup.appendChild(hole2);
         servoGroup.appendChild(axisGuide);
         this.element = servoGroup;
     }
 }
-class ServoManager extends SVGElementSC{
+class ServoManager extends ViolentSequencerPlate{
     constructor(mainGroup,config){
         super(mainGroup)
         this.distanceUpperPX= config.distanceUpperMM;
         this.columnWidthPX=config.columnWidthPX;
         this.sequenceStepsAmount=config.sequenceStepsAmount;
+        this.frameMargin=config.frameMargin;
     }
     render(){
-        const managerGroup = this.getGroup();
-        let servoMotor = new ServoMotor(managerGroup);
+        // const managerGroup = this.getGroup();
+        let servoMotor = new ServoMotor(this.parent);
         const frame = document.createElementNS(SVG_NS,'rect');
         const frameGroup = this.getGroup();
-        this.element = frameGroup;
-        const frameMargin = 5;//px
+        this.element.appendChild(frameGroup);
+        const frameMargin = this.frameMargin;//px
         frameGroup.setAttribute('transform',`translate(${frameMargin},${frameMargin})`)
         const frameWidthPX = to_px(violentData.dimensions.width)-frameMargin*2;
         const frameHeightPX = to_px(violentData.dimensions.height)-frameMargin*2;
         this.setAsEngraving(frame);
+        // frame.setAttribute('stroke','orange')
         frame.setAttribute('width',frameWidthPX)
         frame.setAttribute('height',frameHeightPX)
         frameGroup.appendChild(frame);
@@ -70,7 +79,7 @@ class ServoManager extends SVGElementSC{
             servoClone.setAttribute('transform',`translate(${x},${y})`)
             frameGroup.appendChild(servoClone)
         }
-        managerGroup.remove()
+        servoMotor.element.remove()
     }
     drawGuides(frameGroup,width,frameWidthPX,frameHeightPX){
         for (let index = 0; index < this.sequenceStepsAmount; index++) {

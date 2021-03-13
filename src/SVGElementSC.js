@@ -3,12 +3,23 @@ const SVG_NS = globals.SVG_NS;
 class SVGElementSC{
     constructor(parent){
         this.parent = parent;
-        this.element= null;
+        this.element= this.getGroup();
     }
-    getGroup(){
+    getGroup(parent){
         const group = document.createElementNS(SVG_NS, 'g');
-        this.parent.appendChild(group);
+        if(parent){
+            parent.appendChild(group);
+        }else{
+            this.parent.appendChild(group);
+        }
         return group;
+    }
+    drawRectFrame(wPX,hPX){
+        const rect = document.createElementNS(SVG_NS, 'rect');
+        rect.setAttribute('width',wPX)
+        rect.setAttribute('height',hPX)
+        this.setAsCut(rect);
+        this.parent.appendChild(rect)
     }
     setAsCut(element){
         element.setAttribute('stroke','red')
