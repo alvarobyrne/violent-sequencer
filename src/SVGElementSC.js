@@ -24,6 +24,7 @@ class SVGElementSC{
     setAsCut(element){
         element.setAttribute('stroke','red')
         element.setAttribute('fill','none')
+        element.classList.add('cut');
     }
     setAsRaw(element){
         element.setAttribute('stroke','darkgreen')
@@ -33,6 +34,7 @@ class SVGElementSC{
     setAsEngraving(element){
         element.setAttribute('stroke','blue')
         element.setAttribute('fill','none')
+        element.classList.add('engraving');
     }
 }
 module.exports = SVGElementSC;

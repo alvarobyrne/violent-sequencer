@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewbox="0 0 1000 1000"
+   id="svg"
+   width="1322.86"
+   height="944.9"
+   style="zoom: 0.4; border: 1px solid black;"
+   version="1.1"
+   sodipodi:docname="violent-sequencer.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata169">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs167" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="737"
+     inkscape:window-height="480"
+     id="namedview165"
+     showgrid="false"
+     inkscape:zoom="0.77786007"
+     inkscape:cx="661.42999"
+     inkscape:cy="472.45001"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg" />
+  <g
+     transform="translate(30,8)"
+     id="g162">
+    <g
+       transform="translate(0,476.55199999999996)"
+       id="g78">
+      <circle
+         r="5.6693999999999996"
+         stroke="red"
+         fill="none"
+         class="cut"
+         transform="translate(17.0082,24.5674)"
+         id="circle2" />
+      <circle
+         r="5.6693999999999996"
+         stroke="red"
+         fill="none"
+         class="cut"
+         transform="translate(776.7078,24.5674)"
+         id="circle4" />
+      <circle
+         r="5.6693999999999996"
+         stroke="red"
+         fill="none"
+         class="cut"
+         transform="translate(776.7078,428.98459999999994)"
+         id="circle6" />
+      <circle
+         r="5.6693999999999996"
+         stroke="red"
+         fill="none"
+         class="cut"
+         transform="translate(17.0082,428.98459999999994)"
+         id="circle8" />
+      <rect
+         width="793.716"
+         height="453.55199999999996"
+         stroke="red"
+         fill="none"
+         class="cut"
+         id="rect10" />
+      <g
+         transform="translate(22.677599999999998,22.677599999999998)"
+         id="g76">
+        <g
+           transform="translate(24.472910000000002,18.898)"
+           id="g18">
+          <rect
+             width="44.59928"
+             height="85.041"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="rect12" />
+          <circle
+             cx="22.29964"
+             cy="-9.07104"
+             r="3.7796"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="circle14" />
+          <circle
+             cx="22.29964"
+             cy="-9.07104"
+             r="3.7796"
+             stroke="red"
+             fill="none"
+             class="cut"
+             transform="translate(0,103.18308)"
+             id="circle16" />
+        </g>
+        <g
+           transform="translate(118.01801000000002,222.99639999999997)"
+           id="g26">
+          <rect
+             width="44.59928"
+             height="85.041"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="rect20" />
+          <circle
+             cx="22.29964"
+             cy="-9.07104"
+             r="3.7796"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="circle22" />
+          <circle
+             cx="22.29964"
+             cy="-9.07104"
+             r="3.7796"
+             stroke="red"
+             fill="none"
+             class="cut"
+             transform="translate(0,103.18308)"
+             id="circle24" />
+        </g>
+        <g
+           transform="translate(211.56311,18.898)"
+           id="g34">
+          <rect
+             width="44.59928"
+             height="85.041"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="rect28" />
+          <circle
+             cx="22.29964"
+             cy="-9.07104"
+             r="3.7796"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="circle30" />
+          <circle
+             cx="22.29964"
+             cy="-9.07104"
+             r="3.7796"
+             stroke="red"
+             fill="none"
+             class="cut"
+             transform="translate(0,103.18308)"
+             id="circle32" />
+        </g>
+        <g
+           transform="translate(305.10821,222.99639999999997)"
+           id="g42">
+          <rect
+             width="44.59928"
+             height="85.041"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="rect36" />
+          <circle
+             cx="22.29964"
+             cy="-9.07104"
+             r="3.7796"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="circle38" />
+          <circle
+             cx="22.29964"
+             cy="-9.07104"
+             r="3.7796"
+             stroke="red"
+             fill="none"
+             class="cut"
+             transform="translate(0,103.18308)"
+             id="circle40" />
+        </g>
+        <g
+           transform="translate(398.65331000000003,18.898)"
+           id="g50">
+          <rect
+             width="44.59928"
+             height="85.041"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="rect44" />
+          <circle
+             cx="22.29964"
+             cy="-9.07104"
+             r="3.7796"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="circle46" />
+          <circle
+             cx="22.29964"
+             cy="-9.07104"
+             r="3.7796"
+             stroke="red"
+             fill="none"
+             class="cut"
+             transform="translate(0,103.18308)"
+             id="circle48" />
+        </g>
+        <g
+           transform="translate(492.19841,222.99639999999997)"
+           id="g58">
+          <rect
+             width="44.59928"
+             height="85.041"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="rect52" />
+          <circle
+             cx="22.29964"
+             cy="-9.07104"
+             r="3.7796"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="circle54" />
+          <circle
+             cx="22.29964"
+             cy="-9.07104"
+             r="3.7796"
+             stroke="red"
+             fill="none"
+             class="cut"
+             transform="translate(0,103.18308)"
+             id="circle56" />
+        </g>
+        <g
+           transform="translate(585.7435100000001,18.898)"
+           id="g66">
+          <rect
+             width="44.59928"
+             height="85.041"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="rect60" />
+          <circle
+             cx="22.29964"
+             cy="-9.07104"
+             r="3.7796"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="circle62" />
+          <circle
+             cx="22.29964"
+             cy="-9.07104"
+             r="3.7796"
+             stroke="red"
+             fill="none"
+             class="cut"
+             transform="translate(0,103.18308)"
+             id="circle64" />
+        </g>
+        <g
+           transform="translate(679.2886100000001,222.99639999999997)"
+           id="g74">
+          <rect
+             width="44.59928"
+             height="85.041"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="rect68" />
+          <circle
+             cx="22.29964"
+             cy="-9.07104"
+             r="3.7796"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="circle70" />
+          <circle
+             cx="22.29964"
+             cy="-9.07104"
+             r="3.7796"
+             stroke="red"
+             fill="none"
+             class="cut"
+             transform="translate(0,103.18308)"
+             id="circle72" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="g80" />
+    <g
+       id="g158">
+      <circle
+         r="5.6693999999999996"
+         stroke="red"
+         fill="none"
+         class="cut"
+         transform="translate(17.0082,24.5674)"
+         id="circle82" />
+      <circle
+         r="5.6693999999999996"
+         stroke="red"
+         fill="none"
+         class="cut"
+         transform="translate(776.7078,24.5674)"
+         id="circle84" />
+      <circle
+         r="5.6693999999999996"
+         stroke="red"
+         fill="none"
+         class="cut"
+         transform="translate(776.7078,428.98459999999994)"
+         id="circle86" />
+      <circle
+         r="5.6693999999999996"
+         stroke="red"
+         fill="none"
+         class="cut"
+         transform="translate(17.0082,428.98459999999994)"
+         id="circle88" />
+      <rect
+         width="793.716"
+         height="453.55199999999996"
+         stroke="red"
+         fill="none"
+         class="cut"
+         id="rect90" />
+      <g
+         transform="translate(22.677599999999998,22.677599999999998)"
+         id="g156">
+        <g
+           transform="translate(46.77255,41.19764)"
+           id="g98">
+          <circle
+             r="9.449"
+             transform="translate(0,94.49)"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="circle92" />
+          <g
+             id="g96">
+            <circle
+               r="13.2286"
+               stroke="red"
+               fill="none"
+               class="cut"
+               id="circle94" />
+          </g>
+        </g>
+        <g
+           transform="translate(140.31765000000001,245.29603999999998)"
+           id="g106">
+          <circle
+             r="9.449"
+             transform="translate(0,94.49)"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="circle100" />
+          <g
+             id="g104">
+            <circle
+               r="13.2286"
+               stroke="red"
+               fill="none"
+               class="cut"
+               id="circle102" />
+          </g>
+        </g>
+        <g
+           transform="translate(233.86275,41.19764)"
+           id="g114">
+          <circle
+             r="9.449"
+             transform="translate(0,94.49)"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="circle108" />
+          <g
+             id="g112">
+            <circle
+               r="13.2286"
+               stroke="red"
+               fill="none"
+               class="cut"
+               id="circle110" />
+          </g>
+        </g>
+        <g
+           transform="translate(327.40785,245.29603999999998)"
+           id="g122">
+          <circle
+             r="9.449"
+             transform="translate(0,94.49)"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="circle116" />
+          <g
+             id="g120">
+            <circle
+               r="13.2286"
+               stroke="red"
+               fill="none"
+               class="cut"
+               id="circle118" />
+          </g>
+        </g>
+        <g
+           transform="translate(420.95295000000004,41.19764)"
+           id="g130">
+          <circle
+             r="9.449"
+             transform="translate(0,94.49)"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="circle124" />
+          <g
+             id="g128">
+            <circle
+               r="13.2286"
+               stroke="red"
+               fill="none"
+               class="cut"
+               id="circle126" />
+          </g>
+        </g>
+        <g
+           transform="translate(514.49805,245.29603999999998)"
+           id="g138">
+          <circle
+             r="9.449"
+             transform="translate(0,94.49)"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="circle132" />
+          <g
+             id="g136">
+            <circle
+               r="13.2286"
+               stroke="red"
+               fill="none"
+               class="cut"
+               id="circle134" />
+          </g>
+        </g>
+        <g
+           transform="translate(608.0431500000001,41.19764)"
+           id="g146">
+          <circle
+             r="9.449"
+             transform="translate(0,94.49)"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="circle140" />
+          <g
+             id="g144">
+            <circle
+               r="13.2286"
+               stroke="red"
+               fill="none"
+               class="cut"
+               id="circle142" />
+          </g>
+        </g>
+        <g
+           transform="translate(701.58825,245.29603999999998)"
+           id="g154">
+          <circle
+             r="9.449"
+             transform="translate(0,94.49)"
+             stroke="red"
+             fill="none"
+             class="cut"
+             id="circle148" />
+          <g
+             id="g152">
+            <circle
+               r="13.2286"
+               stroke="red"
+               fill="none"
+               class="cut"
+               id="circle150" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g160" />
+  </g>
+</svg>

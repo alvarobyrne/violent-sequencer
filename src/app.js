@@ -12,14 +12,16 @@ class App{
         svg.setAttributeNS(SVG_NS,'viewbox','0 0 1000 1000')
         svg.setAttribute('xmlns', SVG_NS)
         svg.setAttribute('id', 'svg')
-        svg.setAttribute('width', `${to_px(210*1.25)}`)
-        svg.setAttribute('height', `${to_px(210)}`)
-        svg.style.zoom=0.6;
+        svg.setAttribute('width', `${to_px(350)}`)
+        svg.setAttribute('height', `${to_px(250)}`)
+        svg.style.zoom=0.4;
         svg.style.border='1px solid black';
         document.body.appendChild(svg)
 
         const gui = new dat.GUI;
         gui.add(this,'export')
+        gui.add(Exporter,'clearGuides')
+        gui.add(Exporter,'clearEngravings')
         
         this.svg = svg;
         
@@ -48,7 +50,7 @@ class App{
     }
     render(){
         const mainGroup = this.mainGroup;
-        mainGroup.setAttribute('transform','translate(30,10)')
+        mainGroup.setAttribute('transform','translate(30,8)')
         const distanceUpperMM = 5;
         let distanceUpperPX = to_px(distanceUpperMM);
         let servoManager = new ServoManager(mainGroup,{
@@ -72,11 +74,11 @@ class App{
         let overlapV_PX = this.config.frameHeightPX;
         if(!this.isOverlap){
             overlapV_PX=to_px(violentData.dimensions.height);
-            servoManager.element.setAttribute('transform',`translate(0,${overlapV_PX+30})`);
+            servoManager.element.setAttribute('transform',`translate(0,${overlapV_PX+23})`);
         }
     }
     export(){
-        Exporter.run(this.svg)
+        Exporter.runAndOpen(this.svg)
     }
 }
 module.exports = App;
